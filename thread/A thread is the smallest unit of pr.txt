@@ -1,0 +1,44 @@
+A thread is the smallest unit of processing that can be
+performed in an OS
+
+A process can contain multiple threads.
+
+Threads allows a program to operate more efficiently
+by doing multiple things at the same time.
+
+The idea is to achieve parallelism by dividing a process
+into multiple threads
+
+For example, in a browser, multiple tabs can be
+different threads.
+
+FUNCTION USED IN THREAD
+
+pthread_create: used to create a new thread
+
+pthread_exit: used to terminate a thread
+
+pthread_join: used to wait for the termination of a thread.
+
+pthread_self: used to get the thread id of the current thread
+or the calling thread
+
+This function can uniquely identify the existing threads. But
+if there are multiple threads, and one thread is completed,
+then that id can be reused. So for all running threads, the ids
+are unique.
+
+pthread_equal: compares whether two threads are the same
+or not. If the two threads are equal, the function returns a
+non-zero value otherwise zero.
+
+FUNCTION USED IN THREAD
+
+pthread_cancel: used to send a cancellation
+request to a thread
+
+pthread_detach: used to detach a thread. A
+detached thread does not require a thread to
+join on terminating. The resources of the thread
+are automatically released after terminating if
+the thread is detached.
