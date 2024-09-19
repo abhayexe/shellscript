@@ -1,9 +1,15 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.15">
   <diagram name="Page-1" id="xK0EaHePffCybNPoENot">
-    <mxGraphModel>
+    <mxGraphModel dx="1167" dy="670" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#000000" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="Mo5_aCWApErqlHPTSHuy-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#035185;strokeColor=#000066;glass=1;shadow=0;gradientColor=default;strokeWidth=4;" vertex="1" parent="1">
+          <mxGeometry x="44" y="40" width="740" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="Mo5_aCWApErqlHPTSHuy-3" value="" style="triangle;whiteSpace=wrap;html=1;rounded=1;shadow=0;strokeWidth=3;perimeterSpacing=4;fillColor=#CCD3FC;strokeColor=#E6E6E6;gradientColor=#82E2FF;" vertex="1" parent="1">
+          <mxGeometry x="250" y="112.5" width="310" height="375" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
