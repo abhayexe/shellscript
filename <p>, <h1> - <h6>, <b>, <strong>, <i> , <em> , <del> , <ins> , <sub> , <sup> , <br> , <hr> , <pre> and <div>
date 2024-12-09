@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demonstration of HTML elements and semantic elements">
+    <title>HTML Elements Demonstration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header, footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        article {
+            padding: 1rem;
+            margin: 1rem;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        .highlight {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header section -->
+    <header>
+        <h1>HTML Elements and Semantic Elements</h1>
+        <p>A demonstration of commonly used HTML tags.</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <p><a href="#images">Images</a> | <a href="#videos">Videos</a> | <a href="#audio">Audio</a> | <a href="#text">Text Elements</a></p>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Section for Text Formatting -->
+        <section id="text">
+            <h2>Text Formatting</h2>
+            <p>This is a <b>bold</b> word and this is a <strong>strongly emphasized</strong> word.</p>
+            <p>This is an <i>italic</i> word and this is an <em>emphasized</em> word.</p>
+            <p>This text is <del>deleted</del> and this text is <ins>inserted</ins>.</p>
+            <p>Chemical formula: H<sub>2</sub>O. Exponent: 10<sup>2</sup>.</p>
+            <pre>
+This is preformatted text.
+It preserves
+    spaces and line breaks.
+            </pre>
+            <hr>
+        </section>
+
+        <!-- Section for Images -->
+        <section id="images">
+            <h2>Images</h2>
+            <p>Below is an example of an image:</p>
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image" width="150" height="150">
+            <hr>
+        </section>
+
+        <!-- Section for Videos -->
+        <section id="videos">
+            <h2>Videos</h2>
+            <p>Below is an example of a video:</p>
+            <video controls width="320">
+                <source src="example.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <hr>
+        </section>
+
+        <!-- Section for Audio -->
+        <section id="audio">
+            <h2>Audio</h2>
+            <p>Below is an example of an audio clip:</p>
+            <audio controls>
+                <source src="example.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+            </audio>
+            <hr>
+        </section>
+
+        <!-- Section for Semantic Elements -->
+        <section>
+            <h2>Semantic Elements</h2>
+            <article>
+                <h3>Article Title</h3>
+                <p>This is an example of an <code>&lt;article&gt;</code> element. It is used for self-contained content.</p>
+            </article>
+            <aside>
+                <p>This is an <code>&lt;aside&gt;</code> element. It represents related content or side notes.</p>
+            </aside>
+            <summary>
+                <p>This is a <code>&lt;summary&gt;</code> element, used to summarize details or sections.</p>
+            </summary>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Footer Content &copy; 2024</p>
+    </footer>
+
+</body>
+</html>
