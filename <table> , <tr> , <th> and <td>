@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Lists and Tables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HTML Lists and Tables</h1>
+
+    <!-- Unordered List -->
+    <section>
+        <h2>Unordered List</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript
+                <ul>
+                    <li>ES6</li>
+                    <li>DOM Manipulation</li>
+                </ul>
+            </li>
+            <li>SQL</li>
+        </ul>
+    </section>
+
+    <!-- Ordered List -->
+    <section>
+        <h2>Ordered List</h2>
+        <ol>
+            <li>Plan the project</li>
+            <li>Design the layout</li>
+            <li>Develop the code
+                <ol type="a">
+                    <li>Write HTML</li>
+                    <li>Style with CSS</li>
+                    <li>Add interactivity with JavaScript</li>
+                </ol>
+            </li>
+            <li>Test and deploy</li>
+        </ol>
+    </section>
+
+    <!-- Description List -->
+    <section>
+        <h2>Description List</h2>
+        <dl>
+            <dt>HTML</dt>
+            <dd>Hypertext Markup Language, used for structuring content on the web.</dd>
+            <dt>CSS</dt>
+            <dd>Cascading Style Sheets, used for styling HTML elements.</dd>
+            <dt>JavaScript</dt>
+            <dd>A programming language for adding interactivity to web pages.</dd>
+        </dl>
+    </section>
+
+    <!-- Table -->
+    <section>
+        <h2>Table Example</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th colspan="2">Contact Info</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>25</td>
+                    <td>johndoe@example.com</td>
+                    <td>+1234567890</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Jane Smith</td>
+                    <td rowspan="2">30</td>
+                    <td>janesmith@example.com</td>
+                    <td>+0987654321</td>
+                </tr>
+                <tr>
+                    <td>janesmith.work@example.com</td>
+                    <td>+1122334455</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+</body>
+</html>
