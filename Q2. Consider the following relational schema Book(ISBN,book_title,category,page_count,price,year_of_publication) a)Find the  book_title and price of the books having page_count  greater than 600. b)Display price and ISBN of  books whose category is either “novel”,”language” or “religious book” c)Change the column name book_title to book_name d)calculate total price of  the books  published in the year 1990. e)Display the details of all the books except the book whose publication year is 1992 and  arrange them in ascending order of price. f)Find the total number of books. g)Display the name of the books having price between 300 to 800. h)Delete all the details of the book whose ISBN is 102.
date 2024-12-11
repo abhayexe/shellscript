@@ -1,0 +1,113 @@
+CREATE TABLE Book (
+    ISBN INT PRIMARY KEY,
+    book_title VARCHAR(255),
+    category VARCHAR(50),
+    page_count INT,
+    price DECIMAL(10, 2),
+    year_of_publication INT
+);
+
+
+
+INSERT INTO Book (ISBN, book_title, category, page_count, price, year_of_publication)
+VALUES 
+(101, 'War and Peace', 'novel', 1225, 500.00, 1869),
+(102, 'Learning Python', 'language', 700, 300.00, 1999),
+(109, 'The Catcher in the Rye', 'novel', 300, 200.00, 1951);
+
+
+SELECT book_title, price
+FROM Book
+WHERE page_count > 600;
+
+
+book_title           | price
+----------------------|--------
+War and Peace         | 500.00
+Learning Python       | 300.00
+The Bible             | 450.00
+Sanskrit Grammar      | 400.00
+Bhagavad Gita         | 550.00
+Introduction to Algorithms | 600.00
+
+
+
+SELECT price, ISBN
+FROM Book
+WHERE category IN ('novel', 'language', 'religious book');
+
+
+price    | ISBN
+---------|------
+500.00   | 101
+300.00   | 102
+450.00   | 103
+350.00   | 105
+400.00   | 106
+550.00   | 107
+
+
+
+ALTER TABLE Book
+CHANGE book_title book_name VARCHAR(255);
+
+
+SELECT SUM(price) AS total_price
+FROM Book
+WHERE year_of_publication = 1990;
+
+
+total_price
+------------
+600.00
+
+
+
+SELECT *
+FROM Book
+WHERE year_of_publication != 1992
+ORDER BY price ASC;
+
+
+ISBN  | book_name                 | category      | page_count | price   | year_of_publication
+------|---------------------------|---------------|------------|---------|---------------------
+104   | The Art of War            | strategy      | 200        | 150.00 | 500
+109   | The Catcher in the Rye    | novel         | 300        | 200.00 | 1951
+105   | 1984                      | novel         | 328        | 350.00 | 1949
+106   | Sanskrit Grammar          | language      | 800        | 400.00 | 1970
+103   | The Bible                 | religious book| 1200       | 450.00 | 1800
+101   | War and Peace             | novel         | 1225       | 500.00 | 1869
+102   | Learning Python           | language      | 700        | 300.00 | 1999
+108   | Introduction to Algorithms| academic      | 1200       | 600.00 | 1990
+
+
+
+SELECT COUNT(*) AS total_books
+FROM Book;
+
+
+total_books
+------------
+9
+
+
+SELECT book_name
+FROM Book
+WHERE price BETWEEN 300 AND 800;
+
+
+book_name
+---------------------------
+War and Peace
+Learning Python
+The Bible
+1984
+Sanskrit Grammar
+Bhagavad Gita
+Introduction to Algorithms
+
+
+
+DELETE FROM Book
+WHERE ISBN = 102;
+
