@@ -1,0 +1,46 @@
+CREATE TABLE employee (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    designation VARCHAR(50),
+    basic_pay DECIMAL(10, 2)
+);
+
+
+INSERT INTO employee (name, designation, basic_pay)
+VALUES 
+('John Doe', 'Manager', 12000.00),
+('Jane Smith', 'Developer', 8000.00),
+('Emily Davis', 'Analyst', 6000.00),
+('Michael Brown', 'Designer', 7000.00),
+('Chris Wilson', 'Intern', 4000.00);
+
+
+SELECT 
+    name,
+    designation,
+    basic_pay,
+    (0.6 * basic_pay) AS DA,
+    (0.2 * basic_pay) AS TA,
+    (0.1 * basic_pay) AS HR,
+    (basic_pay + (0.6 * basic_pay) + (0.2 * basic_pay) + (0.1 * basic_pay)) AS GROSS,
+    ((basic_pay + (0.6 * basic_pay) + (0.2 * basic_pay) + (0.1 * basic_pay)) - (0.15 * basic_pay)) AS NET
+FROM employee;
+
+
+SELECT 
+    name,
+    designation,
+    basic_pay,
+    (basic_pay + (0.6 * basic_pay) + (0.2 * basic_pay) + (0.1 * basic_pay)) AS GROSS,
+    ((basic_pay + (0.6 * basic_pay) + (0.2 * basic_pay) + (0.1 * basic_pay)) - (0.15 * basic_pay)) AS NET
+FROM employee;
+
+
+SELECT COUNT(*) AS total_employees FROM employee;
+
+
+SELECT COUNT(*) AS total_employees_in_range
+FROM employee
+WHERE (basic_pay + (0.6 * basic_pay) + (0.2 * basic_pay) + (0.1 * basic_pay)) BETWEEN 5000 AND 15000;
+
+
