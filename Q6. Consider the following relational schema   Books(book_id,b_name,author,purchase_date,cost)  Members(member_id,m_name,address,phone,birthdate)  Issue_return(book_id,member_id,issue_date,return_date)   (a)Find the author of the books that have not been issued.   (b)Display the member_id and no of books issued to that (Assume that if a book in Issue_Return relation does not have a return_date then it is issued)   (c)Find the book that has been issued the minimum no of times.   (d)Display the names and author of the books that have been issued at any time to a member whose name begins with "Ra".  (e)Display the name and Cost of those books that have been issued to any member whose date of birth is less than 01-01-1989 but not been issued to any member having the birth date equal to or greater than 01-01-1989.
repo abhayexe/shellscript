@@ -1,0 +1,108 @@
+CREATE DATABASE LibraryDB;
+
+USE LibraryDB;
+
+
+CREATE TABLE Books (
+    book_id INT PRIMARY KEY,
+    b_name VARCHAR(255),
+    author VARCHAR(255),
+    purchase_date DATE,
+    cost DECIMAL(10, 2)
+);
+
+
+CREATE TABLE Members (
+    member_id INT PRIMARY KEY,
+    m_name VARCHAR(255),
+    address VARCHAR(255),
+    phone VARCHAR(15),
+    birthdate DATE
+);
+
+
+CREATE TABLE Issue_Return (
+    book_id INT,
+    member_id INT,
+    issue_date DATE,
+    return_date DATE,
+    PRIMARY KEY (book_id, member_id, issue_date),
+    FOREIGN KEY (book_id) REFERENCES Books(book_id),
+    FOREIGN KEY (member_id) REFERENCES Members(member_id)
+);
+
+
+INSERT INTO Books (book_id, b_name, author, purchase_date, cost)
+VALUES
+(1, 'Book A', 'Author X', '2023-01-10', 500.00),
+(2, 'Book B', 'Author Y', '2022-06-15', 300.00),
+(3, 'Book C', 'Author Z', '2021-11-05', 450.00),
+(4, 'Book D', 'Author X', '2020-03-20', 600.00),
+(5, 'Book E', 'Author W', '2019-08-12', 700.00);
+
+
+INSERT INTO Members (member_id, m_name, address, phone, birthdate)
+VALUES
+(1, 'Rajesh Kumar', '123 Main St', '1234567890', '1985-02-15'),
+(2, 'Rahul Sharma', '456 Elm St', '9876543210', '1992-09-12'),
+(3, 'Rakesh Yadav', '789 Pine St', '4567891230', '1987-04-25'),
+(4, 'John Doe', '321 Oak St', '7891234560', '1995-07-10');
+
+
+INSERT INTO Issue_Return (book_id, member_id, issue_date, return_date)
+VALUES
+(1, 1, '2023-01-15', '2023-02-01'),
+(2, 2, '2023-02-10', NULL),
+(3, 3, '2023-03-05', '2023-03-20'),
+(4, 1, '2023-01-20', '2023-02-10'),
+(2, 3, '2023-02-15', NULL);
+
+
+SELECT * FROM Books;
+
+
+SELECT * FROM Members;
+
+
+SELECT * FROM Issue_Return;
+
+
+SELECT author 
+FROM Books 
+WHERE book_id NOT IN (SELECT book_id FROM Issue_Return);
+
+
+SELECT member_id, COUNT(book_id) AS num_books_issued 
+FROM Issue_Return 
+WHERE return_date IS NULL
+GROUP BY member_id;
+
+
+SELECT book_id, COUNT(*) AS num_issues 
+FROM Issue_Return 
+GROUP BY book_id 
+ORDER BY num_issues ASC 
+LIMIT 1;
+
+
+SELECT DISTINCT b.b_name, b.author 
+FROM Books b
+JOIN Issue_Return ir ON b.book_id = ir.book_id
+JOIN Members m ON ir.member_id = m.member_id
+WHERE m.m_name LIKE 'Ra%';
+
+
+SELECT DISTINCT b.b_name, b.cost
+FROM Books b
+JOIN Issue_Return ir ON b.book_id = ir.book_id
+JOIN Members m ON ir.member_id = m.member_id
+WHERE m.birthdate < '1989-01-01'
+  AND b.book_id NOT IN (
+      SELECT b2.book_id
+      FROM Books b2
+      JOIN Issue_Return ir2 ON b2.book_id = ir2.book_id
+      JOIN Members m2 ON ir2.member_id = m2.member_id
+      WHERE m2.birthdate >= '1989-01-01'
+  );
+
+
