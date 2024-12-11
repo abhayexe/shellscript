@@ -1,0 +1,67 @@
+CREATE DATABASE CompanyDB;
+
+USE CompanyDB;
+
+
+CREATE TABLE Employee (
+    Emp_no INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Salary DECIMAL(10, 2),
+    design VARCHAR(50),
+    dept_id INT,
+    DOJ DATE
+);
+
+
+CREATE TABLE Department (
+    Dept_id INT PRIMARY KEY,
+    DName VARCHAR(100),
+    loc VARCHAR(100),
+    DOE DATE
+);
+
+
+INSERT INTO Department (Dept_id, DName, loc, DOE)
+VALUES 
+(1, 'Marketing', 'New York', '2000-01-01'),
+(2, 'Finance', 'Chicago', '2005-03-15'),
+(3, 'HR', 'Los Angeles', '2010-07-10'),
+(4, 'IT', 'San Francisco', '2015-06-01');
+
+
+INSERT INTO Employee (Emp_no, Name, Salary, design, dept_id, DOJ)
+VALUES 
+(101, 'John Doe', 60000.00, 'Manager', 1, '2020-07-15'),
+(102, 'Jane Smith', 45000.00, 'Executive', 1, '2021-03-20'),
+(103, 'Emily Davis', 75000.00, 'Manager', 2, '2019-07-01'),
+(104, 'Michael Brown', 50000.00, 'Analyst', 3, '2022-11-10'),
+(105, 'Chris Wilson', 40000.00, 'Intern', 4, '2023-07-25');
+
+
+SELECT * FROM Department;
+
+
+SELECT * FROM Employee;
+
+
+SELECT e.Name 
+FROM Employee e
+JOIN Department d ON e.dept_id = d.Dept_id
+WHERE d.DName = 'Marketing';
+
+
+SELECT * 
+FROM Employee
+WHERE MONTH(DOJ) = 7;
+
+
+
+SELECT * 
+FROM Employee
+WHERE Salary = (SELECT MAX(Salary) FROM Employee);
+
+SELECT d.DName, COUNT(e.Emp_no) AS num_employees
+FROM Department d
+LEFT JOIN Employee e ON d.Dept_id = e.dept_id
+GROUP BY d.DName;
+
