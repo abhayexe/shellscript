@@ -1,0 +1,40 @@
+Step 1: Create the database and table in MySQL
+sql
+
+
+
+
+CREATE DATABASE StudentDB;
+
+USE StudentDB;
+
+CREATE TABLE studentrecords (
+    rollno INT PRIMARY KEY,
+    name VARCHAR(100),
+    address VARCHAR(255)
+);
+
+
+a) Retrieve all student records
+
+SELECT * FROM studentrecords;
+
+
+
+b) Retrieve the address of the students
+
+SELECT address FROM studentrecords;
+
+
+
+c) Retrieve the name of the student whose roll no is 1
+
+SELECT name FROM studentrecords
+WHERE rollno = 1;
+
+
+d) Update a student record whose address is "Guwahati"
+
+UPDATE studentrecords
+SET address = 'Updated Address'
+WHERE address = 'Guwahati';
